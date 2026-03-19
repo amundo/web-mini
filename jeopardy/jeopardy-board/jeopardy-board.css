@@ -1,0 +1,20 @@
+@import url(../flip-card/flip-card.css);
+
+:root {
+  --jeopardy-blue: #010a78;
+  --jeopardy-yellow: #d7a04b;
+}
+
+jeopardy-board {
+  display: grid;
+  grid-template: auto repeat(4, 1fr)/ repeat(5, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  grid-auto-flow: column;
+
+  h2 {
+    margin: 0;
+    text-align: center;
+  }
+}

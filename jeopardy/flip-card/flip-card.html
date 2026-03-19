@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="./flip-card.css" />
+<style>
+  html, body {
+    height: 100%;
+  }
+</style>
+<script type="module" src="./FlipCard.js"></script>
+  <title>Flip Card</title>
+</head>
+<body>
+  
+
+<flip-card>
+</flip-card>
+
+
+<script type="module">
+import { FlipCard } from './FlipCard.js'
+const card = document.querySelector('flip-card')
+card.data = {
+  question: "What is the capital of France?",
+  answer: "Paris",
+  value: 200
+} 
+</script>
+
+</body>
+</html> 
