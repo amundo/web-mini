@@ -6,6 +6,7 @@
 }
 
 jeopardy-board {
+  font-family: sans-serif;
   display: grid;
   grid-template: auto repeat(4, 1fr)/ repeat(5, 1fr);
   gap: 1rem;

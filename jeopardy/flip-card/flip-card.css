@@ -12,6 +12,7 @@ flip-card {
     width: 100%;
     height: 100%;
     border-radius: 1rem;
+    text-shadow: 4px 3px 0 black;
     background: var(--jeopardy-blue);
     color: var(--jeopardy-yellow);
     border: 1px solid #ddd;
@@ -26,6 +27,21 @@ flip-card {
     transform: rotateY(180deg);
   }
 
+  dialog {
+    background-color: var(--jeopardy-blue);
+    color: white;
+    width: 80%;
+    height: 80%;
+    font-size: 4rem;
+    &[open] {
+      display: grid;
+      place-content: center;
+    }
+    font-family: Impact;
+    &::backdrop {
+      background: rgba(0, 0, 0, 0.6);
+    }
+  }
   .flip-card-face {
     position: absolute;
     inset: 0;

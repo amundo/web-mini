@@ -13,14 +13,14 @@ class FlipCard extends HTMLElement {
 
     this.setAttribute("role", "button");
 
-    this.addEventListener("click", this._onToggle);
+    this.addEventListener("click", this._onClick);
     this.addEventListener("keydown", this._onKeyDown);
 
-    this.render(); // initial render
+    this.render();
   }
 
   disconnectedCallback() {
-    this.removeEventListener("click", this._onToggle);
+    this.removeEventListener("click", this._onClick);
     this.removeEventListener("keydown", this._onKeyDown);
   }
 
@@ -39,26 +39,57 @@ class FlipCard extends HTMLElement {
     this.innerHTML = `
       <div class="flip-card-inner">
         <div class="flip-card-face flip-card-front">
-          <h2>₡${value}</h2>
+          <h2 class="value"></h2>
         </div>
+
         <div class="flip-card-face flip-card-back">
-          <h3>${question}</h3>
+          <h3 class="question"></h3>
+          <button type="button" class="open-answer">?</button>
+
+          <dialog class="answer-dialog">
+            <p class="answer"></p>
+            <form method="dialog">
+              <button type="submit">Close</button>
+            </form>
+          </dialog>
         </div>
       </div>
     `;
 
+    this.querySelector(".value").textContent = value ? `₡${value}` : "???";
+    this.querySelector(".question").textContent = question;
+    this.querySelector(".answer").textContent = answer;
+
     this._updateAria();
   }
 
-  _onToggle = () => {
+  _onClick = (event) => {
+    const openButton = event.target.closest(".open-answer");
+    const dialog = this.querySelector(".answer-dialog");
+
+    if (openButton) {
+      event.preventDefault();
+      event.stopPropagation();
+      dialog?.showModal();
+      return;
+    }
+
+    if (event.target.closest("dialog")) {
+      return;
+    }
+
     this.toggleAttribute("flipped");
     this._updateAria();
   };
 
   _onKeyDown = (event) => {
+    if (event.target.closest(".open-answer")) return;
+    if (event.target.closest("dialog")) return;
+
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      this._onToggle();
+      this.toggleAttribute("flipped");
+      this._updateAria();
     }
   };
 
@@ -71,6 +102,4 @@ class FlipCard extends HTMLElement {
 }
 
 customElements.define("flip-card", FlipCard);
-export {
-  FlipCard
-}
+export { FlipCard };

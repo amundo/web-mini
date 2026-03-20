@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>  
+  <title>&lt;jeopardy-board></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <style>
+    html, body, jeopardy-board {
+      height: 100%;
+      margin: 0;
+    }
+  </style>
+  <link rel="stylesheet" href="jeopardy-board/jeopardy-board.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'48'%20height%3D'48'%20viewBox%3D'0%200%2016%2016'%3E%3Ctext%20x%3D'0'%20y%3D'14'%3E%E2%9D%93%3C%2Ftext%3E%3C%2Fsvg%3E" />
+</head>
+<body>
+
+    <jeopardy-board id="demo"></jeopardy-board>  
+
+<script type="module" defer>
+import {JeopardyBoard} from './jeopardy-board/JeopardyBoard.js'
+
+let questions = [
+  [
+    "The Web",
+    [
+      {
+        "question": "This system of connected pages and links is what you use when you browse websites.",
+        "answer": "What is the World Wide Web?",
+        "category": "The Web",
+        "value": 200
+      },
+      {
+        "question": "You type this address into the browser to visit a website.",
+        "answer": "What is a URL?",
+        "category": "The Web",
+        "value": 400
+      },
+      {
+        "question": "These clickable words or images take you from one page to another.",
+        "answer": "What are hyperlinks?",
+        "category": "The Web",
+        "value": 600
+      },
+      {
+        "question": "The global network that connects computers around the world.",
+        "answer": "What is the internet?",
+        "category": "The Web",
+        "value": 800
+      }
+    ]
+  ],
+  [
+    "Software",
+    [
+      {
+        "question": "A set of instructions a computer follows to do something.",
+        "answer": "What is a program?",
+        "category": "Software",
+        "value": 200
+      },
+      {
+        "question": "Software like Chrome or Firefox that lets you view websites.",
+        "answer": "What is a browser?",
+        "category": "Software",
+        "value": 400
+      },
+      {
+        "question": "Another word for a program designed to help users do tasks.",
+        "answer": "What is an application?",
+        "category": "Software",
+        "value": 600
+      },
+      {
+        "question": "A shorter, everyday word for an application on your phone or computer.",
+        "answer": "What is an app?",
+        "category": "Software",
+        "value": 800
+      }
+    ]
+  ],
+  [
+    "Networking",
+    [
+      {
+        "question": "This computer sends web pages to you when you visit a site.",
+        "answer": "What is a server?",
+        "category": "Networking",
+        "value": 200
+      },
+      {
+        "question": "Your computer, phone, or Chromebook when it asks for a webpage.",
+        "answer": "What is a client?",
+        "category": "Networking",
+        "value": 400
+      },
+      {
+        "question": "When you click a link or type a URL, your computer sends one of these.",
+        "answer": "What is a request?",
+        "category": "Networking",
+        "value": 600
+      },
+      {
+        "question": "The webpage or data sent back from the server.",
+        "answer": "What is a response?",
+        "category": "Networking",
+        "value": 800
+      }
+    ]
+  ],
+  [
+    "Information",
+    [
+      {
+        "question": "A saved piece of information on a computer, like a document or image.",
+        "answer": "What is a file?",
+        "category": "Information",
+        "value": 200
+      },
+      {
+        "question": "The place inside a computer where files are stored long-term.",
+        "answer": "What is a hard drive?",
+        "category": "Information",
+        "value": 400
+      },
+      {
+        "question": "The way information is organized, like text, image, or video.",
+        "answer": "What is a format?",
+        "category": "Information",
+        "value": 600
+      },
+      {
+        "question": "This tells you what kind of file it is, like .jpg or .html.",
+        "answer": "What is a file type?",
+        "category": "Information",
+        "value": 800
+      }
+    ]
+  ],
+  [
+    "Data",
+    [
+      {
+        "question": "A way of structuring content using symbols like <tag></tag>.",
+        "answer": "What is markup?",
+        "category": "Data",
+        "value": 200
+      },
+      {
+        "question": "A label in markup, like <p> or <h1>, that tells the browser what something is.",
+        "answer": "What is a tag?",
+        "category": "Data",
+        "value": 400
+      },
+      {
+        "question": "The main language used to build the structure of web pages.",
+        "answer": "What is HTML?",
+        "category": "Data",
+        "value": 600
+      },
+      {
+        "question": "This language controls colors, layout, and style on a webpage.",
+        "answer": "What is CSS?",
+        "category": "Data",
+        "value": 800
+      }
+    ]
+  ]
+]
+
+window.jeopardyBoard = document.querySelector('jeopardy-board')
+jeopardyBoard.data = questions
+</script>
+
+</body>
+</html>
